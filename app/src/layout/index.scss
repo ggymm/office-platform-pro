@@ -1,0 +1,57 @@
+.layout-container {
+  width: 100vw;
+  height: 100vh;
+
+  .layout-sider {
+    color: #ffffff;
+    background-color: #545c64;
+    overflow: hidden;
+
+    .sider-container {
+
+      .menu-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        cursor: pointer;
+
+        margin-top: 20px;
+
+        .menu-item {
+          display: flex;
+          justify-content: center;
+
+          margin: 4px 0;
+
+          .menu-layout {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
+            width: 60px;
+            height: 60px;
+
+            border-radius: 8px;
+
+            &:hover, &.checked {
+              background-color: #434a50;
+            }
+
+            .icon {
+              width: 24px;
+              height: 24px;
+
+              margin: 2px;
+            }
+
+            .title {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
