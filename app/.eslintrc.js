@@ -30,7 +30,8 @@ module.exports = {
         'max': 5
       }
     }],
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'vue/singleline-html-element-content-newline': 'off'
   },
   overrides: [
   ]
