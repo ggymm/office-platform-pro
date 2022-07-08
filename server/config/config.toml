@@ -1,0 +1,6 @@
+[gateway]
+addr = "tcp://:20000"
+# 心跳设置
+tick = false
+tick_interval = 30
+tick_max = 3

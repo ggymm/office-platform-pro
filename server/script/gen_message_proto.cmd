@@ -1,0 +1,1 @@
+protoc.exe --proto_path=../pkg/proto/message/ --go_out=../pkg/proto/ message.proto
