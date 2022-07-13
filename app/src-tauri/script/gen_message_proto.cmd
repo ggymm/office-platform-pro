@@ -1,0 +1,1 @@
+protoc.exe --proto_path=../proto/ --rust_out=../src/socket_client/proto/ message.proto

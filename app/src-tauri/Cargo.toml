@@ -10,14 +10,14 @@ edition = "2021"
 default-run = "coder-desktop"
 
 
-[build-dependencies]
-tauri-build = { version = "1.0.2", features = [] }
-
-
 [dependencies]
-serde_json = "1.0"
-serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.0.2", features = ["api-all"] }
+protobuf = "3.1.0"
+
+tauri = { version = "1.0.3", features = ["api-all"] }
+
+
+[build-dependencies]
+tauri-build = { version = "1.0.3", features = [] }
 
 
 [features]
