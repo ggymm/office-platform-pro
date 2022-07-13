@@ -13,7 +13,7 @@ var Logger *zap.SugaredLogger
 
 func init() {
 	w := zapcore.AddSync(&lumberjack.Logger{
-		Filename: "logger/server.logger",
+		Filename: "log/server.log",
 		MaxSize:  256,
 		Compress: true,
 	})
