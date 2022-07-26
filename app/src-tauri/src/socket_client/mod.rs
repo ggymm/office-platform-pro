@@ -1,9 +1,5 @@
-use std::io::{ErrorKind, Read, Write};
-use std::net::TcpStream;
-use std::str::from_utf8;
-
-use tauri::{Invoke, Runtime, Window};
 use tauri::plugin::Plugin;
+use tauri::{Invoke, Runtime, State, Window};
 
 pub mod proto;
 
@@ -14,14 +10,13 @@ pub struct TauriLibSocketClient<R: Runtime> {
 impl<R: Runtime> TauriLibSocketClient<R> {
     pub fn new() -> Self {
         Self {
-            invoke_handler: Box::new(tauri::generate_handler![send_message])
+            invoke_handler: Box::new(tauri::generate_handler![send_message]),
         }
     }
 }
 
 #[tauri::command]
-fn send_message() {}
-
+fn send_message(_message: String, _sender: State<'_, tauri::async_runtime::Sender<String>>) {}
 
 impl<R: Runtime> Plugin<R> for TauriLibSocketClient<R> {
     fn name(&self) -> &'static str {
@@ -29,9 +24,7 @@ impl<R: Runtime> Plugin<R> for TauriLibSocketClient<R> {
     }
 
     fn created(&mut self, _window: Window<R>) {
-        tauri::async_runtime::spawn(async move {
-            println!("not complete!")
-        });
+        tauri::async_runtime::spawn(async move { println!("not complete!") });
     }
 
     fn extend_api(&mut self, message: Invoke<R>) {

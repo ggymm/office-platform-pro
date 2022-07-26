@@ -9,6 +9,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 
 
+// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   resolve: {
     alias: {

@@ -11,6 +11,11 @@ const router = createRouter({
       path: '/message',
       name: 'Message',
       component: () => import('~/views/message/index.vue')
+    },
+    {
+      path: '/snippet',
+      name: 'CodeSnippet',
+      component: () => import('~/views/snippet/index.vue')
     }
   ]
 })
