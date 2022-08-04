@@ -2,6 +2,7 @@ import path from 'path'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import monacoEditorPlugin from 'vite-plugin-monaco-editor'
 
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
@@ -19,6 +20,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    monacoEditorPlugin({}),
     AutoImport({
       resolvers: [ElementPlusResolver()]
     }),
@@ -30,8 +32,7 @@ export default defineConfig({
   ],
   css: {
     preprocessorOptions: {
-      scss: {
-      }
+      scss: {}
     }
   },
   server: {

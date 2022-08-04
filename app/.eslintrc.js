@@ -16,6 +16,7 @@ module.exports = {
     'vue'
   ],
   rules: {
+    'semi': [2, 'never'],
     'comma-dangle': [2, 'never'],
     'comma-spacing': [2, {
       'after': true,

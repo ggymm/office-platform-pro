@@ -13,9 +13,9 @@ const router = createRouter({
       component: () => import('~/views/message/index.vue')
     },
     {
-      path: '/snippet',
-      name: 'CodeSnippet',
-      component: () => import('~/views/snippet/index.vue')
+      path: '/dev-box',
+      name: 'DevBox',
+      component: () => import('~/views/dev-box/index.vue')
     }
   ]
 })

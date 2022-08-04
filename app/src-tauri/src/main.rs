@@ -6,7 +6,7 @@
 pub mod app;
 pub mod sqlite;
 
-pub mod code_snippet;
+pub mod dev_box;
 pub mod socket_client;
 
 fn main() {
