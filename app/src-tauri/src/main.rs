@@ -6,7 +6,7 @@
 pub mod app;
 pub mod sqlite;
 
-pub mod dev_box;
+pub mod devtool;
 pub mod socket_client;
 
 fn main() {
@@ -19,6 +19,7 @@ fn main() {
             sqlite::init_table();
             Ok(())
         })
+        .plugin(devtool::init()) // 注册开发工具箱插件
         .plugin(socket_client::TauriLibSocketClient::new())
         .run(tauri::generate_context!())
         .expect("error while running coder-desktop app");

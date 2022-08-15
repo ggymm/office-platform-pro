@@ -41,25 +41,27 @@ impl App {
 
 #[derive(Serialize, Deserialize)]
 pub struct ServiceResult<T> {
+    pub success: bool,
     pub code: i32,
     pub data: T,
-    pub msg: String,
+    pub message: String,
 }
 
 impl<T> ServiceResult<T> {
-    pub fn new(code: i32, data: T, msg: &str) -> ServiceResult<T> {
+    pub fn new(success: bool, code: i32, data: T, message: &str) -> ServiceResult<T> {
         ServiceResult {
+            success,
             code,
             data,
-            msg: msg.to_string(),
+            message: message.to_string(),
         }
     }
 
-    pub fn ok(data: T, msg: &str) -> Self {
-        Self::new(200, data, msg)
+    pub fn ok(data: T) -> Self {
+        Self::new(true, 200, data, "")
     }
 
-    pub fn err(data: T, msg: &str) -> Self {
-        Self::new(300, data, msg)
+    pub fn err(data: T, message: &str) -> Self {
+        Self::new(false, 500, data, message)
     }
 }

@@ -1724,6 +1724,7 @@ name = "office-platform"
 version = "0.0.1"
 dependencies = [
  "anyhow",
+ "base64",
  "lazy_static",
  "parking_lot 0.12.1",
  "protobuf",
