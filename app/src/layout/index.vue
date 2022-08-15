@@ -1,12 +1,12 @@
 <template>
-  <el-container class="layout-container">
-    <el-aside class="layout-sider" :width="`${configStore.sidebarWidth}px`">
+  <n-layout class="layout-container" has-sider>
+    <n-layout-sider class="layout-sider" :width="72" :native-scrollbar="false">
       <side-bar />
-    </el-aside>
-    <el-container>
+    </n-layout-sider>
+    <n-layout-content class="layout-content">
       <router-view />
-    </el-container>
-  </el-container>
+    </n-layout-content>
+  </n-layout>
 </template>
 
 <script setup>
@@ -14,7 +14,6 @@ import { SideBar } from '~/layout/components'
 
 import useConfigStore from '~/store/config'
 const configStore = useConfigStore()
-
 
 </script>
 

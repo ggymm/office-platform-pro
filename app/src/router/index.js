@@ -1,7 +1,7 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -9,13 +9,40 @@ const router = createRouter({
     },
     {
       path: '/message',
-      name: 'Message',
       component: () => import('~/views/message/index.vue')
     },
     {
-      path: '/dev-box',
-      name: 'DevBox',
-      component: () => import('~/views/dev-box/index.vue')
+      path: '/devtool',
+      children: [
+        {
+          path: '',
+          component: () => import('~/views/devtool/index.vue')
+        },
+        {
+          path: 'base64',
+          component: () => import('~/views/devtool/tools/base64.vue')
+        },
+        {
+          path: 'url',
+          component: () => import('~/views/devtool/tools/url.vue')
+        },
+        {
+          path: 'json-format',
+          component: () => import('~/views/devtool/tools/json-format.vue')
+        },
+        {
+          path: 'css-cursor',
+          component: () => import('~/views/devtool/tools/css-cursor.vue')
+        },
+        {
+          path: 'keycode',
+          component: () => import('~/views/devtool/tools/keycode.vue')
+        }
+      ]
+    },
+    {
+      path: '/debug',
+      component: () => import('~/views/debug/index.vue')
     }
   ]
 })

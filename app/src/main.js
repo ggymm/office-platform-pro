@@ -6,12 +6,8 @@ import '~/styles/index.scss'
 import router from './router'
 import App from './app.vue'
 
-import * as Icons from "@element-plus/icons-vue"
-
+import VueDOMPurifyHTML from 'vue-dompurify-html'
 
 const app = createApp(App)
-Object.keys(Icons).forEach(key => {
-  app.component(key, Icons[key])
-})
-
+app.use(VueDOMPurifyHTML)
 app.use(router).use(createPinia()).mount('#app')

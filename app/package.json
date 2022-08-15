@@ -1,7 +1,8 @@
 {
-  "name": "coder",
+  "name": "office-platform-app",
   "private": true,
   "version": "0.0.0",
+  "web-types": "./web-types.json",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,12 +11,12 @@
     "tauri-build": "tauri build"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^2.0.6",
     "@tauri-apps/api": "^1.0.2",
-    "element-plus": "^2.2.6",
     "monaco-editor": "^0.33.0",
+    "naive-ui": "^2.32.1",
     "pinia": "^2.0.14",
     "vue": "^3.2.37",
+    "vue-dompurify-html": "^3.0.0",
     "vue-router": "^4.0.16"
   },
   "devDependencies": {

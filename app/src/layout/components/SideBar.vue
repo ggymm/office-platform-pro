@@ -15,23 +15,26 @@
 import { reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
+const router = useRouter()
+
 const menuList = reactive([
   { icon: 'icons8-topic', title: '消息', router: '/message', checked: true },
   { icon: 'icons8-folder', title: '文件', router: '/file', checked: false },
-  { icon: 'icons8-dev-box', title: '开发', router: '/dev-box', checked: false },
   { icon: 'icons8-document', title: '文档', router: '/document', checked: false },
+  { icon: 'icons8-devtool', title: '工具', router: '/devtool', checked: false },
   { icon: 'icons8-app', title: '应用', router: '/app', checked: false },
-  { icon: 'icons8-contact', title: '通讯录', router: '/contact', checked: false }
+  { icon: 'icons8-debug', title: '调试', router: '/debug', checked: false }
 ])
-
-const router = useRouter()
-// const route = useRoute()
 
 onMounted(() => {
   // 初始化选择路由对应的图标
-  const routerPath = router.currentRoute.value.fullPath
+  const routerPath = window.location.pathname
+  if (routerPath === '/') {
+    menuList[0].checked = true
+    return
+  }
   for (let i = 0; i < menuList.length; i++) {
-    menuList[i].checked = routerPath === menuList[i].router
+    menuList[i].checked = routerPath.startsWith(menuList[i].router)
   }
 })
 
