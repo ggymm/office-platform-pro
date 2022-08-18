@@ -1,18 +1,21 @@
 <template>
   <div class="app-container">
     <n-config-provider :theme-overrides="themeOverrides">
-      <n-notification-provider :max="3">
-        <n-message-provider :max="3">
-          <layout />
-        </n-message-provider>
-      </n-notification-provider>
+      <n-loading-bar-provider>
+        <n-notification-provider :max="3">
+          <n-message-provider :max="3">
+            <layout />
+          </n-message-provider>
+        </n-notification-provider>
+      </n-loading-bar-provider>
     </n-config-provider>
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import { NNotificationProvider, NMessageProvider } from 'naive-ui'
+import { NLoadingBarProvider, NNotificationProvider, NMessageProvider } from 'naive-ui'
+
 import { lighten } from '~/utils'
 
 import Layout from '~/layout/index.vue'

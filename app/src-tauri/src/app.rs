@@ -39,7 +39,7 @@ impl App {
     }
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct ServiceResult<T> {
     pub success: bool,
     pub code: i32,

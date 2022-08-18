@@ -32,7 +32,7 @@ const router = createRouter({
         },
         {
           path: 'css-cursor',
-          component: () => import('~/views/devtool/tools/css-cursor.vue')
+          component: () => import('~/views/devtool/tools/cursor.vue')
         },
         {
           path: 'keycode',
@@ -47,8 +47,21 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach(async (to, from, next) => {
-  next()
-})
+export function createRouteGuard(router) {
+  router.beforeEach(async () => {
+    const loading = window['$loading'] || null
+    loading && loading.start()
+  })
+
+  router.afterEach(() => {
+    const loading = window['$loading'] || null
+    loading && loading.finish()
+  })
+}
+
+export async function setupRouter(app) {
+  app.use(router)
+  createRouteGuard(router)
+}
 
 export default router

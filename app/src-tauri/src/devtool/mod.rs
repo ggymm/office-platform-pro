@@ -20,6 +20,7 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
         .invoke_handler(tauri::generate_handler![
             json::json_to_tree,
             base64::base64_encode,
+            base64::base64_file_encode,
             base64::base64_decode,
             test_command
         ])

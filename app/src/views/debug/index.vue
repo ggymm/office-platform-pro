@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>{{ aaa }}</div>
-    <el-button type="primary" @click="testInvoke()">测试命令调用</el-button>
+    <n-button type="primary" @click="testInvoke()">测试命令调用</n-button>
   </div>
 </template>
 

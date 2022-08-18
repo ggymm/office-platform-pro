@@ -5,6 +5,19 @@
   "version": "0.0.0",
   "contributions": {
     "html": {
+      "elements": [
+        {
+          "name": "n-switch",
+          "slots": [
+            {
+              "name": "checked"
+            },
+            {
+              "name": "unchecked"
+            }
+          ]
+        }
+      ],
       "attributes": [
         {
           "name": "theme"

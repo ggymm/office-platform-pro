@@ -4,7 +4,11 @@
       <side-bar />
     </n-layout-sider>
     <n-layout-content class="layout-content">
-      <router-view />
+      <router-view v-slot="{ Component, route }">
+        <transition name="fade-slide" mode="out-in" appear>
+          <component :is="Component" :key="route.fullPath" />
+        </transition>
+      </router-view>
     </n-layout-content>
   </n-layout>
 </template>
@@ -12,9 +16,17 @@
 <script setup>
 import { SideBar } from '~/layout/components'
 
+import { onMounted } from 'vue'
+import { useMessage, useLoadingBar, useNotification } from 'naive-ui'
+
 import useConfigStore from '~/store/config'
 const configStore = useConfigStore()
 
+onMounted(() => {
+  window['$message'] = useMessage()
+  window['$loading'] = useLoadingBar()
+  window['$notification'] = useNotification()
+})
 </script>
 
 <style lang="scss">

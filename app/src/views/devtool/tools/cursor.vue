@@ -1,10 +1,10 @@
 <template>
-  <div class="css-cursor-container">
-    <div class="css-cursor-header">
+  <div class="cursor-container">
+    <div class="cursor-header">
       <back />
       <span class="tips">点击即可复制到剪切板</span>
     </div>
-    <div class="css-cursor-body">
+    <div class="cursor-body">
       <div
         v-for="(cursor, i) in cursorList" :key="i" class="cursor-item"
         :style="getCursor(cursor)" @click="copy(cursor)"
@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-import { useMessage } from 'naive-ui'
 import { Back } from '@comps/fragment'
 
 const cursorList = [
@@ -29,7 +28,6 @@ const cursorList = [
   'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize',
   'zoom-in', 'zoom-out'
 ]
-const message = useMessage()
 
 const getCursor = (value) => {
   return { cursor: value }
@@ -41,7 +39,7 @@ const getIcon = (value) => {
 
 const copy = (value) => {
   navigator.clipboard.writeText(value).then(() => {
-    message.success(`已复制 ${value} 到剪切板`)
+    window['$message'].success(`已复制 ${value} 到剪切板`)
   })
 }
 </script>

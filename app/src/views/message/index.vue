@@ -1,6 +1,6 @@
 <template>
   <div class="message-container">
-    <el-button type="primary">截图</el-button>
+    <n-button type="primary">截图</n-button>
   </div>
 </template>
 
