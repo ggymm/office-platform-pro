@@ -22,11 +22,11 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
-import { invoke } from '@tauri-apps/api'
 import { $ } from '~/utils/dom'
 import { monaco } from '~/plugins/monaco'
 
 import { Back } from '@comps/fragment'
+import { invoke } from '@tauri-apps/api'
 import { useNotification } from "naive-ui"
 
 let originEditor
@@ -125,5 +125,4 @@ const handleEncodeEditorChange = () => {
 </script>
 
 <style lang="scss">
-@import '../index';
 </style>

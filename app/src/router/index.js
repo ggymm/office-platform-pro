@@ -23,20 +23,28 @@ const router = createRouter({
           component: () => import('~/views/devtool/tools/base64.vue')
         },
         {
+          path: 'cursor',
+          component: () => import('~/views/devtool/tools/cursor.vue')
+        },
+        {
+          path: 'format',
+          component: () => import('~/views/devtool/tools/format.vue')
+        },
+        {
           path: 'url',
           component: () => import('~/views/devtool/tools/url.vue')
         },
         {
-          path: 'json-format',
-          component: () => import('~/views/devtool/tools/json-format.vue')
-        },
-        {
-          path: 'css-cursor',
-          component: () => import('~/views/devtool/tools/cursor.vue')
+          path: 'json',
+          component: () => import('~/views/devtool/tools/json.vue')
         },
         {
           path: 'keycode',
           component: () => import('~/views/devtool/tools/keycode.vue')
+        },
+        {
+          path: 'color',
+          component: () => import('~/views/devtool/tools/color.vue')
         }
       ]
     },

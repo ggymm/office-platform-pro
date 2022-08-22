@@ -40,5 +40,75 @@ const goDevtool = (devtool) => {
 </script>
 
 <style lang="scss">
-@import 'index.scss';
+.devtool-container {
+  width: calc(100vw - 72px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .devtool-header {
+    height: 36px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+      width: 480px;
+    }
+  }
+
+  .devtool-list-container {
+    padding: 8px 20px 20px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .devtool-list {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+      .devtool {
+        color: #555555;
+        height: 80px;
+        display: flex;
+        padding: 16px 0 16px 16px;
+        align-items: center;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 0 8px #00000010;
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0 0 0 2px #2d8cf0, 0 0 8px #00000010;
+        }
+
+        .icon {
+          width: 50px;
+          height: 50px;
+        }
+
+        .body {
+          padding: 16px 0;
+          margin-left: 10px;
+
+          .title {
+            height: 36px;
+            font-size: 18px;
+            line-height: 36px;
+          }
+
+          .description {
+            height: 24px;
+            font-size: 14px;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

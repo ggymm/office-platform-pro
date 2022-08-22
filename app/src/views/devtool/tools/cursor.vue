@@ -18,6 +18,7 @@
 
 <script setup>
 import { Back } from '@comps/fragment'
+import { writeText } from '@tauri-apps/api/clipboard'
 
 const cursorList = [
   'default', 'context-menu', 'help', 'pointer', 'progress', 'wait', 'cell',
@@ -38,12 +39,73 @@ const getIcon = (value) => {
 }
 
 const copy = (value) => {
-  navigator.clipboard.writeText(value).then(() => {
+  writeText(value).then(() => {
     window['$message'].success(`已复制 ${value} 到剪切板`)
   })
 }
 </script>
 
 <style lang="scss">
-@import '../index';
+.cursor-container {
+  width: calc(100vw - 72px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .cursor-header {
+    height: 48px;
+    min-height: 48px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+
+    .tips {
+      font-size: 12px;
+      margin-left: 16px;
+    }
+  }
+
+  .cursor-body {
+    height: calc(100vh - 68px);
+    display: grid;
+    padding: 0 20px 20px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cursor-item {
+      display: flex;
+      padding: 32px 16px;
+      border-radius: 6px;
+      align-items: center;
+      flex-direction: column;
+      background-color: #ffffff;
+
+      &:hover {
+        color: #ffffff;
+        background-color: #409EFF;
+
+        .icon {
+          filter: invert(0);
+        }
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        filter: invert(1);
+      }
+
+      .text {
+        font-size: 14px;
+        margin-top: 16px;
+      }
+    }
+  }
+}
 </style>

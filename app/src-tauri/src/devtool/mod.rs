@@ -5,6 +5,7 @@ use tauri::{
 
 pub mod base64;
 pub mod json;
+pub mod url;
 
 #[derive(Default)]
 struct DevBoxState {}
@@ -22,6 +23,7 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             base64::base64_encode,
             base64::base64_file_encode,
             base64::base64_decode,
+            url::url_encode,
             test_command
         ])
         .setup(|app_handle| {

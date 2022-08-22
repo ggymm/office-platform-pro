@@ -2,6 +2,7 @@
   <div>
     <div>{{ aaa }}</div>
     <n-button type="primary" @click="testInvoke()">测试命令调用</n-button>
+    <n-button type="primary" @click="testColorPicker()">测试取色</n-button>
   </div>
 </template>
 
@@ -18,6 +19,9 @@ const testInvoke = () => {
     aaa.value = 11
     console.log(response)
   })
+}
+
+const testColorPicker = () => {
 }
 
 </script>

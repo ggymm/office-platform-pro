@@ -27,6 +27,9 @@
         },
         {
           "name": "v-dompurify-html"
+        },
+        {
+          "name": ":on-update:value"
         }
       ]
     }
