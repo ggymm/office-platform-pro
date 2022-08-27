@@ -4,32 +4,27 @@ version = "0.0.1"
 
 authors = ["ggymm"]
 license = "MIT"
-repository = "https://github.com/ggymm/coder"
+repository = "https://github.com/ggymm/office-platform-pro"
 
-edition = "2021"
 default-run = "office-platform"
-
+edition = "2021"
 
 [dependencies]
 anyhow = "1.0.58"
+base64 = "0.13.0"
 lazy_static = "1.4.0"
 parking_lot = "0.12.1"
-
-base64 = "0.13.0"
-
 protobuf = "3.1.0"
 serde_json = "1.0.82"
-rusqlite = { version = "0.28.0", features = ["bundled"] }
 
-serde = { version = "1.0.140", features = ["derive"] }
-tauri = { version = "1.0.5", features = ["api-all"] }
-tokio = { version = "1.20.0", features = ["full"] }
-
+rusqlite = {version = "0.28.0", features = ["bundled"] }
+serde = {version = "1.0.140", features = ["derive"] }
+tauri = {version = "1.0.5", features = ["api-all"] }
+tokio = {version = "1.20.0", features = ["full"] }
 
 [build-dependencies]
-tauri-build = { version = "1.0.4", features = [] }
-
+tauri-build = {version = "1.0.4", features = [] }
 
 [features]
-default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]
+default = ["custom-protocol"]

@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import { Blank, Layout } from '~/layout'
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -9,10 +11,17 @@ const router = createRouter({
     },
     {
       path: '/message',
-      component: () => import('~/views/message/index.vue')
+      component: Layout,
+      children: [
+        {
+          path: '',
+          component: () => import('~/views/message/index.vue')
+        }
+      ]
     },
     {
       path: '/devtool',
+      component: Layout,
       children: [
         {
           path: '',
@@ -23,40 +32,63 @@ const router = createRouter({
           component: () => import('~/views/devtool/tools/base64.vue')
         },
         {
-          path: 'cursor',
-          component: () => import('~/views/devtool/tools/cursor.vue')
+          path: 'url',
+          component: () => import('~/views/devtool/tools/url.vue')
         },
+
+        {
+          path: 'record',
+          component: () => import('~/views/devtool/tools/record.vue')
+        },
+
         {
           path: 'format',
           component: () => import('~/views/devtool/tools/format.vue')
         },
         {
-          path: 'url',
-          component: () => import('~/views/devtool/tools/url.vue')
-        },
-        {
           path: 'json',
           component: () => import('~/views/devtool/tools/json.vue')
+        },
+
+        {
+          path: 'color',
+          component: () => import('~/views/devtool/tools/color.vue')
+        },
+        {
+          path: 'cursor',
+          component: () => import('~/views/devtool/tools/cursor.vue')
         },
         {
           path: 'keycode',
           component: () => import('~/views/devtool/tools/keycode.vue')
         },
+
         {
-          path: 'color',
-          component: () => import('~/views/devtool/tools/color.vue')
+          path: 'image/extractor',
+          component: () => import('~/views/devtool/tools/image/extractor.vue')
         }
       ]
     },
     {
       path: '/debug',
-      component: () => import('~/views/debug/index.vue')
+      component: Layout,
+      children: [
+        {
+          path: '',
+          component: () => import('~/views/debug/index.vue')
+        }
+      ]
+    },
+    {
+      path: '/blank',
+      component: Blank,
+      children: []
     }
   ]
 })
 
 export function createRouteGuard(router) {
-  router.beforeEach(async () => {
+  router.beforeEach(async() => {
     const loading = window['$loading'] || null
     loading && loading.start()
   })
@@ -67,9 +99,7 @@ export function createRouteGuard(router) {
   })
 }
 
-export async function setupRouter(app) {
+export function setupRouter(app) {
   app.use(router)
   createRouteGuard(router)
 }
-
-export default router

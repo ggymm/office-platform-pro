@@ -3,6 +3,7 @@ import path from 'path'
 import { defineConfig } from 'vite'
 
 import vue from '@vitejs/plugin-vue'
+import mkcert from'vite-plugin-mkcert'
 import monacoEditorPlugin from 'vite-plugin-monaco-editor'
 
 import AutoImport from 'unplugin-auto-import/vite'
@@ -20,6 +21,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    mkcert(),
     monacoEditorPlugin({}),
     AutoImport({
       resolvers: [
@@ -39,6 +41,7 @@ export default defineConfig({
   },
   server: {
     port: 8888,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    https: true
   }
 })

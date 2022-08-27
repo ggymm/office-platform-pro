@@ -4,8 +4,7 @@ use tauri::{
 };
 
 pub mod base64;
-pub mod json;
-pub mod url;
+pub mod image;
 
 #[derive(Default)]
 struct DevBoxState {}
@@ -19,11 +18,10 @@ fn test_command(args: &str) -> String {
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
     Builder::new("devtool")
         .invoke_handler(tauri::generate_handler![
-            json::json_to_tree,
             base64::base64_encode,
             base64::base64_file_encode,
             base64::base64_decode,
-            url::url_encode,
+            image::image_extractor,
             test_command
         ])
         .setup(|app_handle| {

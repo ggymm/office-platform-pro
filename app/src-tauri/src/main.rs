@@ -22,5 +22,5 @@ fn main() {
         .plugin(devtool::init()) // 注册开发工具箱插件
         .plugin(socket_client::TauriLibSocketClient::new())
         .run(tauri::generate_context!())
-        .expect("error while running coder-desktop app");
+        .expect("error while running office-platform-pro app");
 }

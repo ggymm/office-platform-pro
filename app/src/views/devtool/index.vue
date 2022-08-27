@@ -26,7 +26,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import devtoolList from './tools.json'
+import devtoolList from './assets/tools.json'
 
 const router = useRouter()
 
@@ -92,7 +92,6 @@ const goDevtool = (devtool) => {
         }
 
         .body {
-          padding: 16px 0;
           margin-left: 10px;
 
           .title {

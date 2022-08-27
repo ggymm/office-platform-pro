@@ -19,10 +19,10 @@ const router = useRouter()
 
 const menuList = reactive([
   { icon: 'icons8-topic', title: '消息', router: '/message', checked: true },
-  { icon: 'icons8-folder', title: '文件', router: '/file', checked: false },
-  { icon: 'icons8-document', title: '文档', router: '/document', checked: false },
+  { icon: 'icons8-folder', title: '文件', router: '', checked: false },
+  { icon: 'icons8-document', title: '文档', router: '', checked: false },
   { icon: 'icons8-devtool', title: '工具', router: '/devtool', checked: false },
-  { icon: 'icons8-app', title: '应用', router: '/app', checked: false },
+  { icon: 'icons8-app', title: '应用', router: '', checked: false },
   { icon: 'icons8-debug', title: '调试', router: '/debug', checked: false }
 ])
 
@@ -34,7 +34,10 @@ onMounted(() => {
     return
   }
   for (let i = 0; i < menuList.length; i++) {
-    menuList[i].checked = routerPath.startsWith(menuList[i].router)
+    const path = menuList[i].router
+    if (path) {
+      menuList[i].checked = routerPath.startsWith(path)
+    }
   }
 })
 
@@ -47,7 +50,10 @@ function goRouter(index) {
   for (let i = 0; i < menuList.length; i++) {
     menuList[i].checked = index === i
   }
-  router.push({ path: menuList[index].router })
+  const path = menuList[index].router
+  if (path) {
+    router.push({ path: path })
+  }
 }
 
 </script>

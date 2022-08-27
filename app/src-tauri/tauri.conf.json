@@ -3,11 +3,11 @@
   "build": {
     "beforeBuildCommand": "pnpm build",
     "beforeDevCommand": "pnpm dev",
-    "devPath": "http://localhost:8888",
+    "devPath": "https://localhost:8888",
     "distDir": "../dist"
   },
   "package": {
-    "productName": "coder",
+    "productName": "office-platform-pro",
     "version": "0.1.0"
   },
   "tauri": {

@@ -1,0 +1,19 @@
+.common-container {
+  width: calc(100vw - 72px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .common-header {
+    height: 48px;
+    min-height: 48px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .common-body {
+    height: calc(100vh - 72px);
+    padding: 0 20px 24px 20px;
+  }
+}

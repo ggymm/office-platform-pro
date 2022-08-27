@@ -10,7 +10,7 @@ import VueDOMPurifyHTML from 'vue-dompurify-html'
 
 const app = createApp(App)
 
-await setupRouter(app)
+setupRouter(app)
 app.use(VueDOMPurifyHTML)
 app.use(createPinia())
 app.mount('#app')

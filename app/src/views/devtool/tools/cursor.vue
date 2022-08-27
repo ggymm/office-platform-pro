@@ -1,10 +1,10 @@
 <template>
-  <div class="cursor-container">
-    <div class="cursor-header">
+  <div class="common-container">
+    <div class="common-header">
       <back />
       <span class="tips">点击即可复制到剪切板</span>
     </div>
-    <div class="cursor-body">
+    <div class="common-body">
       <div
         v-for="(cursor, i) in cursorList" :key="i" class="cursor-item"
         :style="getCursor(cursor)" @click="copy(cursor)"
@@ -46,65 +46,52 @@ const copy = (value) => {
 </script>
 
 <style lang="scss">
-.cursor-container {
-  width: calc(100vw - 72px);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+@import '../assets/common';
 
-  .cursor-header {
-    height: 48px;
-    min-height: 48px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
+.common-header {
+  .tips {
+    font-size: 12px;
+    margin-left: 16px;
+  }
+}
 
-    .tips {
-      font-size: 12px;
-      margin-left: 16px;
-    }
+.common-body {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 
-  .cursor-body {
-    height: calc(100vh - 68px);
-    display: grid;
-    padding: 0 20px 20px;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  .cursor-item {
+    display: flex;
+    padding: 32px 16px;
+    border-radius: 6px;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
 
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .cursor-item {
-      display: flex;
-      padding: 32px 16px;
-      border-radius: 6px;
-      align-items: center;
-      flex-direction: column;
-      background-color: #ffffff;
-
-      &:hover {
-        color: #ffffff;
-        background-color: #409EFF;
-
-        .icon {
-          filter: invert(0);
-        }
-      }
+    &:hover {
+      color: #ffffff;
+      background-color: #409EFF;
 
       .icon {
-        width: 24px;
-        height: 24px;
-        filter: invert(1);
+        filter: invert(0);
       }
+    }
 
-      .text {
-        font-size: 14px;
-        margin-top: 16px;
-      }
+    .icon {
+      width: 24px;
+      height: 24px;
+      filter: invert(1);
+    }
+
+    .text {
+      font-size: 14px;
+      margin-top: 16px;
     }
   }
 }

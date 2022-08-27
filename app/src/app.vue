@@ -4,7 +4,7 @@
       <n-loading-bar-provider>
         <n-notification-provider :max="3">
           <n-message-provider :max="3">
-            <layout />
+            <router-view />
           </n-message-provider>
         </n-notification-provider>
       </n-loading-bar-provider>
@@ -17,8 +17,6 @@ import { computed } from 'vue'
 import { NLoadingBarProvider, NNotificationProvider, NMessageProvider } from 'naive-ui'
 
 import { lighten } from '~/utils'
-
-import Layout from '~/layout/index.vue'
 
 const themeOverrides = computed(() => {
   const appTheme = '#2d8cf0'

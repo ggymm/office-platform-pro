@@ -1,6 +1,6 @@
 <template>
-  <div class="base64-container">
-    <div class="base64-header">
+  <div class="common-container">
+    <div class="common-header">
       <back />
       <n-space class="handle">
         <n-switch :round="false" @update:value="handleBase64TypeChange">
@@ -10,7 +10,7 @@
         <n-button v-show="base64Image" type="info" @click="handleResetBase64Image">删除当前图片</n-button>
       </n-space>
     </div>
-    <div id="base64-body" class="base64-body">
+    <div id="base64-body" class="common-body">
       <div class="origin">
         <span class="title">{{ base64Image ? base64ImagePath : '原始内容' }}</span>
         <div v-show="!base64Image" class="editor">
@@ -21,7 +21,24 @@
             <div class="upload-dragger">
               <div style="margin-bottom: 12px">
                 <n-icon size="48" :depth="3">
-                  <archive-outline />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                      d="M80 152v256a40.12 40.12 0 0 0 40 40h272a40.12 40.12 0 0 0 40-40V152" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="32"
+                    />
+                    <rect
+                      x="48" y="64" width="416" height="80" rx="28"
+                      ry="28" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"
+                    />
+                    <path
+                      fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                      d="M320 304l-64 64l-64-64"
+                    />
+                    <path
+                      fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                      d="M256 345.89V224"
+                    />
+                  </svg>
                 </n-icon>
               </div>
               <n-text style="font-size: 16px">点击或者拖动文件到该区域</n-text>
@@ -49,7 +66,6 @@ import { monaco } from '~/plugins/monaco'
 
 import { Back } from '@comps/fragment'
 import { invoke, dialog } from '@tauri-apps/api'
-import { ArchiveOutline } from '@vicons/ionicons5'
 
 let originEditor
 let encodeEditor
@@ -206,93 +222,81 @@ const handleResetBase64Image = () => {
 </script>
 
 <style lang="scss">
-.base64-container {
-  width: calc(100vw - 72px);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+@import '../assets/common';
 
-  .base64-header {
-    height: 48px;
-    min-height: 48px;
-    padding: 0 20px;
+.common-header {
+  justify-content: space-between;
+
+  .handle {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+  }
+}
 
-    .handle {
-      display: flex;
-      align-items: center;
-    }
+.common-body {
+  display: grid;
+  grid-gap: 12px 0;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+
+  .origin, .encode {
+    display: flex;
+    flex-direction: column;
   }
 
-  .base64-body {
-    height: calc(100vh - 72px);
-    display: grid;
-    padding: 0 20px 24px 20px;
-    grid-gap: 12px 0;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
+  .title {
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
 
-    .origin, .encode {
-      display: flex;
-      flex-direction: column;
-    }
+  .editor {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px #00000010;
+  }
 
-    .title {
-      height: 20px;
-      line-height: 20px;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
+  .image {
+    width: 100%;
+    height: 100%;
 
-    .editor {
-      padding: 8px;
-      border-radius: 8px;
-      background-color: #ffffff;
-      box-shadow: 0 0 4px #00000010;
-    }
-
-    .image {
+    .upload {
       width: 100%;
       height: 100%;
+      display: flex;
+      flex-direction: column;
 
-      .upload {
+      .upload-dragger {
         width: 100%;
         height: 100%;
+        cursor: pointer;
         display: flex;
+        align-items: center;
         flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        border: 1px dashed #e0e0e6;
+        background-color: #ffffff;
 
-        .upload-dragger {
-          width: 100%;
-          height: 100%;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
-          box-sizing: border-box;
-          border: 1px dashed #e0e0e6;
-          background-color: #ffffff;
-
-          &:hover {
-            border: 1px dashed #2d8cf0;
-          }
+        &:hover {
+          border: 1px dashed #2d8cf0;
         }
       }
+    }
 
-      .show {
+    .show {
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+
+      img {
         width: 100%;
         height: 100%;
-        padding: 8px;
-        display: flex;
-        flex-direction: column;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain !important;
-        }
+        object-fit: contain !important;
       }
     }
   }
