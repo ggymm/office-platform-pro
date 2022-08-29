@@ -4,6 +4,8 @@ use tauri::{
 };
 
 pub mod base64;
+pub mod convert;
+
 pub mod image;
 
 #[derive(Default)]
@@ -21,6 +23,7 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             base64::base64_encode,
             base64::base64_file_encode,
             base64::base64_decode,
+            convert::number_base_convert,
             image::image_extractor,
             test_command
         ])

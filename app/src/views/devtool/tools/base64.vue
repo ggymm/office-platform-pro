@@ -164,10 +164,8 @@ const handleDecode = () => {
       } else {
         originEditor.setValue('')
         window['$notification']['error']({
-          content: "解码失败",
-          meta: resp.message,
-          duration: 2500,
-          keepAliveOnHover: true
+          content: "解码失败", meta: resp.message,
+          duration: 2500, keepAliveOnHover: true
         })
       }
     })
@@ -201,10 +199,8 @@ const handleChooseBase64Image = async() => {
       base64ImageEncode.value = 'data:image/png;base64,' + resp.data
     } else {
       window['$notification']['error']({
-        content: "图片编码失败",
-        meta: resp.message,
-        duration: 2500,
-        keepAliveOnHover: true
+        content: "图片编码失败", meta: resp.message,
+        duration: 2500, keepAliveOnHover: true
       })
     }
   })

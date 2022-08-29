@@ -20,8 +20,7 @@ const videoRef = ref()
 
 onMounted(() => {
   if (!navigator.getDisplayMedia && !navigator.mediaDevices.getDisplayMedia) {
-    let error = 'Your browser does NOT support the getDisplayMedia API.'
-    throw new Error(error)
+    window['$message'].error('当前浏览器不支持录制')
   }
 })
 
@@ -41,6 +40,8 @@ const handleRecordStart = async() => {
     })
 
     mediaRecorder.start()
+
+    // 显示实时视频流
     videoRef.value.srcObject = stream
     videoRef.value.controls = true
   } catch (e) {

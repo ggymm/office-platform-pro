@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "tauri-dev": "tauri dev",
-    "tauri-build": "tauri build"
+    "tauri-build": "tauri build",
+    "update-linux-command": "zx script/update-linux-command.mjs"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.2",

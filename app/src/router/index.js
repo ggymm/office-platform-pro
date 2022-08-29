@@ -35,6 +35,10 @@ const router = createRouter({
           path: 'url',
           component: () => import('~/views/devtool/tools/url.vue')
         },
+        {
+          path: 'binary',
+          component: () => import('~/views/devtool/tools/binary.vue')
+        },
 
         {
           path: 'record',
