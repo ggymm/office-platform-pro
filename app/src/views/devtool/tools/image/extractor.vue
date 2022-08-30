@@ -1,6 +1,6 @@
 <template>
   <div class="common-container">
-    <div class="common-header">
+    <div class="common-header extractor-header">
       <back />
     </div>
     <div class="common-body">
@@ -62,7 +62,7 @@ const handleDownloadAll = () => {
 <style lang="scss">
 @import '../../assets/common';
 
-.common-header {
+.extractor-header {
   justify-content: space-between;
 }
 

@@ -20,16 +20,22 @@
       ],
       "attributes": [
         {
-          "name": "theme"
-        },
-        {
-          "name": "theme-overrides"
+          "name": ":on-update:value"
         },
         {
           "name": "v-dompurify-html"
         },
         {
-          "name": ":on-update:value"
+          "name": "clickable"
+        },
+        {
+          "name": "hoverable"
+        },
+        {
+          "name": "theme"
+        },
+        {
+          "name": "theme-overrides"
         }
       ]
     }

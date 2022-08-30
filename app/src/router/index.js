@@ -66,6 +66,10 @@ const router = createRouter({
           path: 'keycode',
           component: () => import('~/views/devtool/tools/keycode.vue')
         },
+        {
+          path: 'linux',
+          component: () => import('~/views/devtool/tools/linux.vue')
+        },
 
         {
           path: 'image/extractor',

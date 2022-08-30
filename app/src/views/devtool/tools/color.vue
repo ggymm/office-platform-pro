@@ -3,7 +3,7 @@
     <div class="common-header">
       <back />
     </div>
-    <div class="common-body">
+    <div class="common-body color-body">
       <n-form v-model="colorVal" label-placement="left" label-width="60">
         <n-form-item label="颜色选择">
           <n-color-picker
@@ -64,7 +64,7 @@ const handleChange = (val) => {
 <style lang="scss">
 @import '../assets/common';
 
-.common-body {
+.color-body {
   display: flex;
   flex-direction: column;
 

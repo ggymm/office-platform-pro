@@ -1,10 +1,10 @@
 <template>
   <div class="common-container">
-    <div class="common-header">
+    <div class="common-header cursor-header">
       <back />
       <span class="tips">点击即可复制到剪切板</span>
     </div>
-    <div class="common-body">
+    <div class="common-body cursor-body">
       <div
         v-for="(cursor, i) in cursorList" :key="i" class="cursor-item"
         :style="getCursor(cursor)" @click="copy(cursor)"
@@ -48,14 +48,14 @@ const copy = (value) => {
 <style lang="scss">
 @import '../assets/common';
 
-.common-header {
+.cursor-header {
   .tips {
     font-size: 12px;
     margin-left: 16px;
   }
 }
 
-.common-body {
+.cursor-body {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

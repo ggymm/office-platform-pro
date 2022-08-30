@@ -3,11 +3,14 @@
     <div class="common-header">
       <back />
     </div>
-    <div class="common-body">
+    <div class="common-body record-body">
       <div class="handler">
         <n-button type="success" @click="handleRecordStart">开始录制</n-button>
       </div>
-      <video ref="videoRef" class="video" controls autoplay playsinline />
+      <video
+        ref="videoRef" class="video"
+        controls autoplay loop playsinline
+      />
     </div>
   </div>
 </template>
@@ -54,7 +57,7 @@ const handleRecordStart = async() => {
 <style lang="scss">
 @import '../assets/common';
 
-.common-body {
+.record-body {
   display: flex;
   flex-direction: column;
 

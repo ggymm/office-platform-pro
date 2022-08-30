@@ -1,6 +1,6 @@
 <template>
   <div class="common-container">
-    <div class="common-header">
+    <div class="common-header base64-header">
       <back />
       <n-space class="handle">
         <n-switch :round="false" @update:value="handleBase64TypeChange">
@@ -10,7 +10,7 @@
         <n-button v-show="base64Image" type="info" @click="handleResetBase64Image">删除当前图片</n-button>
       </n-space>
     </div>
-    <div id="base64-body" class="common-body">
+    <div id="base64-body" class="common-body base64-body">
       <div class="origin">
         <span class="title">{{ base64Image ? base64ImagePath : '原始内容' }}</span>
         <div v-show="!base64Image" class="editor">
@@ -110,12 +110,11 @@ const resizeEditor = () => {
   const padding = 8
   const $body = $("#base64-body")
 
-  // 两侧边距(base64-body): 20 * 2
-  const width = $body.clientWidth - 40 - padding * 2
+  const width = $body.clientWidth - padding * 2
   editorStyle.width = width + 'px'
 
-  // 标题高度(title): 24 * 2; 中间间距(base64-body:grid-gap): 12; 底部边距(base64-body): 24
-  const height = $body.clientHeight - 84 - padding * 4
+  // 标题高度(title): 24 * 2; 中间间距(base64-body:grid-gap): 12
+  const height = $body.clientHeight - 60 - padding * 4
   editorStyle.height = height / 2 + 'px'
 }
 
@@ -220,7 +219,7 @@ const handleResetBase64Image = () => {
 <style lang="scss">
 @import '../assets/common';
 
-.common-header {
+.base64-header {
   justify-content: space-between;
 
   .handle {
@@ -229,7 +228,7 @@ const handleResetBase64Image = () => {
   }
 }
 
-.common-body {
+.base64-body {
   display: grid;
   grid-gap: 12px 0;
   grid-template-rows: 1fr 1fr;

@@ -97,9 +97,5 @@ const handleConvert = () => {
   .input {
     margin-top: 20px
   }
-
-  .output {
-
-  }
 }
 </style>
