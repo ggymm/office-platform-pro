@@ -9,7 +9,7 @@
     </div>
     <div id="linux-body" class="common-body linux-body">
       <n-data-table
-        :row-props="rowProps"
+        :row-props="handleRowClick"
         :columns="columns"
         :data="commandData"
         :max-height="tableHeight"
@@ -70,7 +70,7 @@ const handleSearch = () => {
   commandData.value = filterCommandData
 }
 
-const rowProps = (row) => {
+const handleRowClick = (row) => {
   return {
     onClick: async () => {
       let webview = WebviewWindow.getByLabel('LinuxCommand')
